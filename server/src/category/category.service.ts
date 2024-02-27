@@ -12,10 +12,14 @@ export class CategoryService {
   ) {}
 
   async getAllCategories() {
-    return await this.categoryRepository.find();
+    return await this.categoryRepository.find({
+      relations: {
+        products: true,
+      },
+    });
   }
 
-  async getGategoryByid(id: number) {
+  async getGategoryByid(id: string) {
     const found = await this.categoryRepository.findOne({
       where: { id },
     });
