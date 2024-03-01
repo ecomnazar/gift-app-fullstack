@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ProductEntity } from './entities/product.entity';
 import { Repository } from 'typeorm';
 import { CategoryEntity } from 'src/category/entities/category.entity';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Injectable()
 export class ProductService {
@@ -12,12 +13,17 @@ export class ProductService {
     private readonly productRepository: Repository<ProductEntity>,
   ) {}
 
-  async getAllProducts() {
-    return await this.productRepository.find({
+  async getAllProducts(paginationDto: PaginationDto) {
+    const { limit, offset } = paginationDto;
+    const data = await this.productRepository.find({
       relations: {
         categories: true,
       },
+      skip: offset,
+      take: limit ?? 20,
     });
+    const dataLength = (await this.productRepository.find()).length;
+    return { data, count: dataLength };
   }
 
   async getProductById(id: string) {
@@ -35,7 +41,7 @@ export class ProductService {
     return this.productRepository.save(product);
   }
 
-  async deleteProduct(id: number) {
+  async deleteProduct(id: string) {
     return await this.productRepository.delete(id);
   }
 }

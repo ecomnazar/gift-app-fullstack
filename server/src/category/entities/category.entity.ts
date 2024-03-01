@@ -16,10 +16,10 @@ export class CategoryEntity extends Base {
       foreignKeyConstraintName: 'category_product_category_id',
     },
     inverseJoinColumn: {
-      name: 'proudct_id',
+      name: 'product_id',
       referencedColumnName: 'id',
       foreignKeyConstraintName: 'category_product_product_id',
     },
   })
-  public products: ProductEntity[];
+  products: ProductEntity[];
 }
