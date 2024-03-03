@@ -2,7 +2,18 @@ import React from 'react'
 import { Card } from '@/src/shared/ui/card'
 import { Container } from '@/src/shared/ui/container'
 
-export const ProductList = () => {
+interface IProduct {
+    id: string
+    name: string;
+    price: string;
+    imageUrl: string;
+}
+
+interface Props {
+    content: IProduct[]
+}
+
+export const ProductList: React.FC<Props> = (data) => {
     return (
         <Container>
             <div className="flex items-center justify-between">
@@ -13,9 +24,14 @@ export const ProductList = () => {
                 {/* <h4 className="cursor-pointer hover:underline text-primary font-medium">View All</h4> */}
             </div>
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6">
-                {Array.from({ length: 15 }).map((item, i) => {
+                {data?.content.map((item, i) => {
                     return (
-                        <Card.Product key={i} image='https://imgcdn.floweraura.com/heart-printed-black-coffee-mug-9788917gf-B_0.jpg?tr=w-304,dpr-1.75,q-70' title='Personalised Snuggly Cushion' price='445.00 TMT' />
+                        <Card.Product
+                            key={item.id}
+                            image={item.imageUrl}
+                            title={item.name}
+                            price={`${item.price} TMT`}
+                        />
                     )
                 })}
             </div>

@@ -7,7 +7,9 @@ export class CategoryEntity extends Base {
   @Column()
   name: string;
 
-  @ManyToMany(() => ProductEntity, (product) => product.categories)
+  @ManyToMany(() => ProductEntity, (product) => product.categories, {
+    cascade: true,
+  })
   @JoinTable({
     name: 'category_product',
     joinColumn: {

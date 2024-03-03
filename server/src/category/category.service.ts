@@ -14,7 +14,7 @@ export class CategoryService {
   async getAllCategories() {
     return await this.categoryRepository.find({
       relations: {
-        products: true,
+        // products: true,
       },
     });
   }

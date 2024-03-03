@@ -5,6 +5,9 @@ const nextConfig = {
       {
         hostname: "imgcdn.floweraura.com",
       },
+      {
+        hostname: "localhost",
+      },
     ],
   },
 };

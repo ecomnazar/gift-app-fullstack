@@ -14,8 +14,8 @@ interface CardCompositionType {
 export const Card: CardCompositionType & React.FC<Props> = ({ image, title, price, ...props }) => {
     return (
         <div {...props} className="cart border border-grey bg-light rounded-2xl overflow-hidden">
-            <div className="h-[175px] md:h-[200px] xl:h-[250px] relative">
-                <Image src={image} alt="Product" fill />
+            <div className="h-[175px] md:h-[200px] xl:h-[220px] relative">
+                <Image src={`http://localhost:3002/${image}`} alt="Product" fill />
             </div>
             <div className="p-2 text-grey">
                 <p className="font-medium text-[12px] lg:text-[14px]">{title}</p>

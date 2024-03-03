@@ -9,12 +9,14 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Navbar } from "@/src/shared/ui/navbar";
 import { Footer } from "@/src/widgets/footer";
 import { Header } from "@/src/widgets/header";
+import { fetchProducts } from "@/src/entities/product/productApi";
 
-export const HomePage = () => {
+export const HomePage = async () => {
+    const { data, count } = await fetchProducts()
     return (
         <>
             <Header />
-            <ProductList />
+            <ProductList content={data} />
             <Container>
                 <h2 className="text-dark text-center text-[24px] sm:text-[36px] max-w-[450px] mx-auto">We Don’t Just Send Gifts. We Deliver Happiness.</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 mt-8 gap-3 md:gap-6">

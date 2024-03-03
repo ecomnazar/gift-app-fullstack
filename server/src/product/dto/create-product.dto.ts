@@ -1,7 +1,7 @@
 export class CreateProductDto {
   name: string;
   description: string;
-  price: 10;
+  price: number;
   imageUrl: string;
   categoryIds: string[];
 }

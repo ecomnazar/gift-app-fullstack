@@ -8,6 +8,7 @@ import {
   UseInterceptors,
   UploadedFile,
   Query,
+  Put,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -33,6 +34,11 @@ export class ProductController {
   @Post()
   createProduct(@Body() createProductDto: CreateProductDto) {
     return this.productService.createProduct(createProductDto);
+  }
+
+  @Put(':id')
+  updateProduct(@Param('id') id: string, @Body() productDto: CreateProductDto) {
+    return this.productService.updateProduct(id, productDto);
   }
 
   @Delete(':id')

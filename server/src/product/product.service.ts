@@ -32,6 +32,10 @@ export class ProductService {
     });
   }
 
+  async updateProduct(id: string, productDto: CreateProductDto) {
+    return await this.productRepository.update(id, productDto);
+  }
+
   async createProduct(createProductDto: CreateProductDto) {
     const product = this.productRepository.create(createProductDto);
     product.categories = createProductDto.categoryIds.map((id) => ({
