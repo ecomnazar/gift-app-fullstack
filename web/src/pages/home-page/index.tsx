@@ -7,6 +7,7 @@ import { fetchProducts } from "@/src/entities/product/productApi";
 
 export const HomePage = async () => {
     const { data, count } = await fetchProducts()
+    // 
     return (
         <>
             <Header />
