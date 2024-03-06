@@ -1,15 +1,13 @@
+import React from 'react'
+import Image from 'next/image'
 import { fetchProductById } from '@/app/(fsd)/entities/product/productApi'
-import { Button } from '@/app/(fsd)/shared/ui/button'
+import { AddToCartButton } from '@/app/(fsd)/features/add-to-cart-button'
 import { Container } from '@/app/(fsd)/shared/ui/container'
 import { Navbar } from '@/app/(fsd)/shared/ui/navbar'
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import React from 'react'
 
 const Products = async ({ params }: { params: any }) => {
     const { id } = params
     const data = await fetchProductById(id)
-    console.log(data);
 
     return (
         <>
@@ -23,7 +21,7 @@ const Products = async ({ params }: { params: any }) => {
                     <h2 className='font-normal text-[#7a7a7a]'>{data?.description} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis illo soluta nostrum modi vitae saepe! Soluta mollitia in explicabo, doloremque et provident veritatis, corporis architecto dolores odio laudantium nemo dolor iste, maiores sed! Asperiores ipsam minima eligendi minus assumenda magnam.</h2>
                     <h3 className='font-semibold text-3xl text-dark'>{data?.price} TMT</h3>
                     <div className='max-w-[300px]'>
-                        <Button>Add to cart</Button>
+                        <AddToCartButton data={data} />
                     </div>
                 </div>
 
