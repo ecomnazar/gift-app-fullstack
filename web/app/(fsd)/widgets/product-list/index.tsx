@@ -1,13 +1,9 @@
+'use client'
 import React from 'react'
-import { Card } from '@/src/shared/ui/card'
-import { Container } from '@/src/shared/ui/container'
-
-interface IProduct {
-    id: string
-    name: string;
-    price: string;
-    imageUrl: string;
-}
+import { Card } from '@/app/(fsd)/shared/ui/card'
+import { Container } from '@/app/(fsd)/shared/ui/container'
+import { IProduct } from '@/app/(fsd)/entities/product/interfaces'
+import { Button } from '@/app/(fsd)/shared/ui/button'
 
 interface Props {
     content: IProduct[]
@@ -24,10 +20,11 @@ export const ProductList: React.FC<Props> = (data) => {
                 {/* <h4 className="cursor-pointer hover:underline text-primary font-medium">View All</h4> */}
             </div>
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6">
-                {data?.content.map((item, i) => {
+                {data?.content.map((item) => {
                     return (
                         <Card.Product
                             key={item.id}
+                            id={item.id}
                             image={item.imageUrl}
                             title={item.name}
                             price={`${item.price} TMT`}
@@ -35,6 +32,7 @@ export const ProductList: React.FC<Props> = (data) => {
                     )
                 })}
             </div>
+            <Button onClick={() => console.log('123')}>See more</Button>
         </Container>
     )
 }

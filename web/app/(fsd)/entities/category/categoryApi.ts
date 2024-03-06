@@ -1,5 +1,5 @@
-import { API_ENDPOINTS } from "@/src/shared/api/endpoints";
-import { instance } from "@/src/shared/api/instance";
+import { API_ENDPOINTS } from "@/app/(fsd)/shared/api/endpoints";
+import { instance } from "@/app/(fsd)/shared/api/instance";
 
 export const fetchCategories = async () => {
   const response = await instance.get(API_ENDPOINTS.CATEGORY);

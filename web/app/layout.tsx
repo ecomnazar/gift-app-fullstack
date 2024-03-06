@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
-import { TanstackProvider } from "@/src/app/tanstackProvider";
+import "./(fsd)/shared/styles/globals.css";
+import { TanstackProvider } from "@/app/(fsd)/app/tanstackProvider";
 
 const inter = Poppins({
   subsets: ["latin"],

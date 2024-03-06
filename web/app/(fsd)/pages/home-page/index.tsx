@@ -1,9 +1,10 @@
-import { Container } from "@/src/shared/ui/container";
-import { ProductList } from "@/src/widgets/product-list";
+import { Container } from "@/app/(fsd)/shared/ui/container";
+import { ProductList } from "@/app/(fsd)/widgets/product-list";
 import { BsCake2 } from "react-icons/bs";
-import { Footer } from "@/src/widgets/footer";
-import { Header } from "@/src/widgets/header";
-import { fetchProducts } from "@/src/entities/product/productApi";
+import { Footer } from "@/app/(fsd)/widgets/footer";
+import { Header } from "@/app/(fsd)/widgets/header";
+import { fetchProducts } from "@/app/(fsd)/entities/product/productApi";
+import { Button } from "@/app/(fsd)/shared/ui/button";
 
 export const HomePage = async () => {
     const { data, count } = await fetchProducts()
@@ -11,7 +12,7 @@ export const HomePage = async () => {
     return (
         <>
             <Header />
-            <ProductList content={data} />/
+            <ProductList content={data} />
             <Container>
                 <h2 className="text-dark text-center text-[24px] sm:text-[36px] max-w-[450px] mx-auto">We Don’t Just Send Gifts. We Deliver Happiness.</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 mt-8 gap-3 md:gap-6">

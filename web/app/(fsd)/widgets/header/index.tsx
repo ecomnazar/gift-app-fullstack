@@ -1,5 +1,5 @@
-import { Container } from '@/src/shared/ui/container'
-import { Navbar } from '@/src/shared/ui/navbar'
+import { Container } from '@/app/(fsd)/shared/ui/container'
+import { Navbar } from '@/app/(fsd)/shared/ui/navbar'
 import React from 'react'
 
 export const Header = () => {
