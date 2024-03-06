@@ -1,4 +1,4 @@
-import { Container } from '@/src/shared/ui/container'
+import { Container } from '@/app/(fsd)/shared/ui/container'
 import React from 'react'
 
 export const Footer = () => {
