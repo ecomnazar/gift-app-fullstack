@@ -5,7 +5,7 @@ import { AddToCartButton } from '@/app/(fsd)/features/add-to-cart-button'
 import { Container } from '@/app/(fsd)/shared/ui/container'
 import { Navbar } from '@/app/(fsd)/shared/ui/navbar'
 
-const Products = async ({ params }: { params: any }) => {
+const Page = async ({ params }: { params: any }) => {
     const { id } = params
     const data = await fetchProductById(id)
 
@@ -24,10 +24,9 @@ const Products = async ({ params }: { params: any }) => {
                         <AddToCartButton data={data} />
                     </div>
                 </div>
-
             </Container>
         </>
     )
 }
 
-export default Products
+export default Page

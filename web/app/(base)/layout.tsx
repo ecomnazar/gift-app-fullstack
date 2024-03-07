@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../(fsd)/shared/styles/globals.css";
 import { TanstackProvider } from "@/app/(fsd)/app/tanstackProvider";
+import { ToasterProvider } from "@/app/(fsd)/app/toasterProvider";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -23,9 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <TanstackProvider>
-          <div>
-            {children}
-          </div>
+          <ToasterProvider>
+            <div>
+              {children}
+            </div>
+          </ToasterProvider>
         </TanstackProvider>
       </body>
     </html>

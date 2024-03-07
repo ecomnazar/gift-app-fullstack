@@ -2,7 +2,7 @@ import React from 'react'
 import { CartPage } from '@/app/(fsd)/pages/cart-page'
 
 
-const Cart = () => {
+const Page = () => {
     return (
         <>
             <CartPage />
@@ -10,4 +10,4 @@ const Cart = () => {
     )
 }
 
-export default Cart
+export default Page
