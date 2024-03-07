@@ -1,17 +1,14 @@
-import React from "react";
+"use client";
+import { localStorageSetItemToCart } from "../localstorage/cart";
 import { useGetCart } from "./useGetCart";
 import { IProduct } from "@/app/(fsd)/entities/product/interfaces";
 
-interface Props {
-  data: IProduct;
-}
-
-export const useAddToCart = ({ data }: Props) => {
+export const useAddToCart = (data: IProduct) => {
   const cart = useGetCart();
-  const addToCart = () =>
-    cart
-      ? localStorage.setItem("cart", JSON.stringify([...cart, data]))
-      : localStorage.setItem("cart", JSON.stringify([data]));
+  const checkedData = cart
+    ? JSON.stringify([...cart, data])
+    : JSON.stringify([data]);
+  const addToCart = () => localStorageSetItemToCart(checkedData);
 
   return addToCart;
 };

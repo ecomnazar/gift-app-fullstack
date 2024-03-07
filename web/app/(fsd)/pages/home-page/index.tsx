@@ -1,18 +1,23 @@
-import { Container } from "@/app/(fsd)/shared/ui/container";
-import { ProductList } from "@/app/(fsd)/widgets/product-list";
+import React from "react";
 import { BsCake2 } from "react-icons/bs";
 import { Footer } from "@/app/(fsd)/widgets/footer";
 import { Header } from "@/app/(fsd)/widgets/header";
-import { fetchProducts } from "@/app/(fsd)/entities/product/productApi";
-import { Button } from "@/app/(fsd)/shared/ui/button";
+import { Container } from "@/app/(fsd)/shared/ui/container";
+import { ProductList } from "@/app/(fsd)/widgets/product-list";
+import { IProduct } from "@/app/(fsd)/entities/product/interfaces";
 
-export const HomePage = async () => {
-    const { data, count } = await fetchProducts()
-    // 
+interface Props {
+    data: {
+        data: IProduct[]
+        count: number
+    }
+}
+
+export const HomePage: React.FC<Props> = ({ data }) => {
     return (
         <>
             <Header />
-            <ProductList content={data} />
+            <ProductList content={data.data} />
             <Container>
                 <h2 className="text-dark text-center text-[24px] sm:text-[36px] max-w-[450px] mx-auto">We Don’t Just Send Gifts. We Deliver Happiness.</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 mt-8 gap-3 md:gap-6">

@@ -1,14 +1,13 @@
-import React from "react";
-import { fetchCategories } from "@/app/(fsd)/entities/category/categoryApi";
+import React, { Suspense } from "react";
 import { HomePage } from "@/app/(fsd)/pages/home-page";
+import { fetchProducts } from "@/app/(fsd)/entities/product/productApi";
 
+export const fetchCache = 'force-no-store'
 const Home = async () => {
-  // const data = await fetchCategories()
-  // console.log(data);
-
+  const data = await fetchProducts()
   return (
     <>
-      <HomePage />
+      <HomePage data={data} />
     </>
   );
 }
