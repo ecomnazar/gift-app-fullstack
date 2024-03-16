@@ -1,5 +1,5 @@
 "use client";
-import { localStorageSetItemToCart } from "../localstorage/cart";
+import { localStorageSetCart } from "../localstorage/cart";
 import { useGetCart } from "./useGetCart";
 import { IProduct } from "@/app/(fsd)/entities/product/interfaces";
 
@@ -8,7 +8,7 @@ export const useAddToCart = (data: IProduct) => {
   const checkedData = cart
     ? JSON.stringify([...cart, data])
     : JSON.stringify([data]);
-  const addToCart = () => localStorageSetItemToCart(checkedData);
+  const addToCart = () => localStorageSetCart(checkedData);
 
   return addToCart;
 };
