@@ -17,8 +17,6 @@ export const CartPage = () => {
     const [cart, setCart] = React.useState(cartLS)
     // const removeFromCart = useRemoveFromCart(data)
 
-
-
     const onRemoveItem = (product: IProduct) => {
         const deletedData = cart?.filter((item) => item.id !== product.id)
         setCart(deletedData!)
@@ -27,7 +25,7 @@ export const CartPage = () => {
 
     const submitPayment = () => {
     }
-
+    // 
     return (
         <>
             {cart?.length === 0 || !cart ? '' :
